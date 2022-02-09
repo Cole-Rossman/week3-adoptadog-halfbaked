@@ -9,8 +9,8 @@ async function fetchDog() {
 
     const dogId = await getDog(params.get('id'));
 
-    const findId = renderDogDetail(dogId);
-    dogDetailContainer.append(findId);
+    const singleDog = renderDogDetail(dogId);
+    dogDetailContainer.append(singleDog);
 
 }
 fetchDog();
