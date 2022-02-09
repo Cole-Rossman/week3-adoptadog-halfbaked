@@ -5,10 +5,11 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getDogs() {
     // from the dogs table, select all items
-
+    const resp = await client.from('dogs').select('*');
     // and return the response (checking for errors)
-    return checkError(response);    
+    return checkError(resp);    
 }
+console.log(await getDogs());
 
 export async function getDog(id) {
     // from the dogs table, select a single dog who has the matching id
