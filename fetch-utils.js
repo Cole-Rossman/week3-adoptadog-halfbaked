@@ -13,10 +13,11 @@ console.log(await getDogs());
 
 export async function getDog(id) {
     // from the dogs table, select a single dog who has the matching id
-
+    const resp = await client.from('dogs').select('*').eq('id', id).single();
     // and return the response (checking for errors)
-    return checkError(response);    
+    return checkError(resp);    
 }
+console.log(await getDog(3));
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
